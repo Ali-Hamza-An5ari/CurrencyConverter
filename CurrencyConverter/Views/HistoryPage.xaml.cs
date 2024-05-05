@@ -14,10 +14,10 @@ public partial class HistoryPage : ContentPage
         });
 
         BindingContext = vm = new HistoryViewModel();
-        //Task.Run(async () =>
-        //   this.listHistory.ItemsSource = await vm.GetHistories()
-        //        )
-        ;
+        Task.Run(async () =>
+           this.listHistory.ItemsSource = (await vm.GetHistories())
+                .Select(x=> x.Conversion).ToList()
+                );
 	}
 
     private void OnSwipeLeft(object sender, SwipedEventArgs e)

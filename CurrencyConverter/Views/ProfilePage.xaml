@@ -18,38 +18,279 @@
         <controls:TitleBar
             Grid.Row="0"
             />
+        
 
         <!--Row 2-->
-        <Grid 
-            Grid.Row="1"
-            Padding="20"
-            HorizontalOptions="CenterAndExpand"
-            >   
+        <Grid Grid.Row="1"
+          Padding="20"
+          HorizontalOptions="CenterAndExpand"
+              WidthRequest="280"
+      BackgroundColor="#F0F0F0">
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="Auto"/>
-            </Grid.ColumnDefinitions>
+            <!-- Profile Picture -->
+            <Frame Grid.Row="0"
+           Grid.ColumnSpan="2"
+                   WidthRequest="180"
+                   HeightRequest="180"
+           CornerRadius="100"
+           HasShadow="True" 
+                Margin="0,20,0,20">
+                <Image x:Name="imgProfile"
+               Source="{Binding CurrentUser.ProfilePictureSource}"
+               Aspect="AspectFill"
+               HeightRequest="200"
+               WidthRequest="200" />
+            </Frame>
 
-            <Image Grid.Row="0" Grid.ColumnSpan="2" x:Name="imgProfile" Source="{Binding CurrentUser.ProfilePictureSource}" Aspect="AspectFill" HeightRequest="200" WidthRequest="200" Margin="0,20,0,20"/>
+            <!-- User Information -->
+            <Grid Grid.Row="1"
+             Grid.ColumnSpan="2"
+             BackgroundColor="White"
+                  
+             Padding="15">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                
+                <!-- White background for user info with padding and rounded corners -->
+
+                    <!-- Name -->
+                    <Label Text="Name:"
+                           Grid.Row="0"
+                           Grid.Column="0"
+                           FontSize="18"
+                           TextColor="#333333"
+                           VerticalOptions="Center" />
+                    <!-- Dark text color -->
+
+                    <Label Text="{Binding CurrentUser.Name}"
+                           Grid.Row="0"
+                           Grid.Column="1"
+                           FontSize="22"
+                           FontAttributes="Bold"
+                           TextColor="#009688"
+                           VerticalOptions="Center"/>
+                    <!-- Bold and larger font for name, teal color -->
+
+                    <!-- Separator -->
+                    <BoxView HeightRequest="1"
+                         BackgroundColor="#CCCCCC"
+                         Grid.Row="1"
+                         Grid.ColumnSpan="2" />
+                    <!-- Gray separator line -->
+
+                    <!-- Email -->
+                <Label Text="Email:"
+                           Grid.Row="2"
+                           Grid.Column="0"
+               FontSize="18"
+               TextColor="#333333"
+               VerticalOptions="Center"/>
+                    <!-- Dark text color -->
+
+                    <Label Text="{Binding CurrentUser.Email}"
+               FontSize="20"
+               FontAttributes="Italic"
+               TextColor="#666666"
+               VerticalOptions="Center"
+               Grid.Row="2"
+               Grid.Column="1" />
+                    <!-- Italic and slightly smaller font for email -->
+
+                    <!-- Separator -->
+                    <BoxView HeightRequest="1"
+                 BackgroundColor="#CCCCCC"
+                 Grid.Row="3"
+                 Grid.ColumnSpan="2" />
+                    <!-- Gray separator line -->
+
+                    <!-- Phone Number -->
+                    <Label Text="Phone Number:"
+                           FontSize="18"
+                           TextColor="#333333"
+                           VerticalOptions="Center"
+                           Grid.Column="0"
+                           Grid.Row="4" />
+                    <!-- Dark text color -->
+
+                    <Label Text="{Binding CurrentUser.PhoneNumber}"
+                       FontSize="20"
+                       TextColor="#666666"
+                       VerticalOptions="Center"
+                       Grid.Row="4"
+                       Grid.Column="1" />
+                    <!-- Slightly smaller font for phone number -->
+
+                    <!-- Separator -->
+                    <BoxView HeightRequest="1"
+                 BackgroundColor="#CCCCCC"
+                 Grid.Row="5"
+                 Grid.ColumnSpan="2" />
+                    <!-- Gray separator line -->
+                
+            </Grid>
+
+            <!--<StackLayout Grid.Row="1"
+             Grid.ColumnSpan="2"
+             BackgroundColor="White"
+             Padding="15"
+             Spacing="10">
+
+                --><!-- White background for user info with padding and rounded corners --><!--
+                <FlexLayout Direction="Column"
+                JustifyContent="Start"
+                AlignItems="Start"
+                AlignContent="Start">
+
+                    --><!-- Name --><!--
+                    <FlexLayout Direction="Row"
+                    JustifyContent="SpaceBetween"
+                    AlignItems="Center"
+                    AlignContent="Center">
+                        <Label Text="Name:"
+                   FontSize="18"
+                   TextColor="#333333"
+                   Margin="0,0,10,0" />
+                        --><!-- Dark text color --><!--
+
+                        <Label Text="{Binding CurrentUser.Name}"
+                   FontSize="22"
+                   FontAttributes="Bold"
+                   TextColor="#009688" />
+                        --><!-- Bold and larger font for name, teal color --><!--
+                    </FlexLayout>
+
+                    --><!-- Separator --><!--
+                    <BoxView HeightRequest="1"
+                 BackgroundColor="#CCCCCC" />
+                    --><!-- Gray separator line -->
+
+                    <!-- Email --><!--
+                    <FlexLayout Direction="Row"
+                    JustifyContent="SpaceBetween"
+                    AlignItems="Center"
+                    AlignContent="Center">
+                        <Label Text="Email:"
+                   FontSize="18"
+                   TextColor="#333333"
+                   Margin="0,0,10,0" />
+                        --><!-- Dark text color --><!--
+
+                        <Label Text="{Binding CurrentUser.Email}"
+                   FontSize="20"
+                   FontAttributes="Italic"
+                   TextColor="#666666" />
+                        --><!-- Italic and slightly smaller font for email --><!--
+                    </FlexLayout>
+
+                    --><!-- Separator --><!--
+                    <BoxView HeightRequest="1"
+                 BackgroundColor="#CCCCCC" />
+                    --><!-- Gray separator line -->
+
+                    <!-- Phone Number --><!--
+                    <FlexLayout Direction="Row"
+                    JustifyContent="SpaceBetween"
+                    AlignItems="Center"
+                    AlignContent="Center">
+                        <Label Text="Phone Number:"
+                   FontSize="18"
+                   TextColor="#333333"
+                   Margin="0,0,10,0" />
+                        --><!-- Dark text color --><!--
+
+                        <Label Text="{Binding CurrentUser.PhoneNumber}"
+                   FontSize="20"
+                   TextColor="#666666" />
+                        --><!-- Slightly smaller font for phone number --><!--
+                    </FlexLayout>
+
+                    --><!-- Separator --><!--
+                    <BoxView HeightRequest="1"
+                 BackgroundColor="#CCCCCC" />
+                    --><!-- Gray separator line --><!--
+                </FlexLayout>
+            </StackLayout>-->
 
             
-            <Label Grid.Row="1" Grid.Column="0" Text="Name" FontSize="20" />
-            <Label Grid.Row="1" Grid.Column="1" Text="{Binding CurrentUser.Name}" FontAttributes="Bold" FontSize="16" />
+            <!--//////////////-->
+            
+            
+            <!--<StackLayout Grid.Row="1"
+                 Grid.ColumnSpan="2"
+                 BackgroundColor="White"
+                 Padding="15"
+                 Spacing="10">
+                --><!-- White background for user info with padding and rounded corners -->
 
-            <Label Grid.Row="2" Grid.Column="0" Text="Email" FontSize="20" />
-            <Label Grid.Row="2" Grid.Column="1" Text="{Binding  CurrentUser.Email}" FontAttributes="Bold" FontSize="16" />
+                <!-- Name --><!--
+                <Label Text="Name"
+               FontSize="18"
+               TextColor="#333333" />
+                --><!-- Dark text color --><!--
 
-            <Label Grid.Row="3" Grid.Column="0" Text="Phone Number" FontSize="20" />
-            <Label Grid.Row="3" Grid.Column="1" Text="{Binding CurrentUser.PhoneNumber}" FontAttributes="Bold" FontSize="16" />
+                <Label Text="{Binding CurrentUser.Name}"
+               FontSize="22"
+               FontAttributes="Bold"
+               TextColor="#009688" />
+
+                --><!-- Separator --><!--
+                <BoxView HeightRequest="1"
+                 BackgroundColor="#CCCCCC" />
+                --><!-- Gray separator line -->
+
+                <!-- Bold and larger font for name, teal color -->
+
+                <!-- Email --><!--
+                <Label Text="Email"
+               FontSize="18"
+               TextColor="#333333" />
+                --><!-- Dark text color --><!--
+
+                <Label Text="{Binding CurrentUser.Email}"
+               FontSize="20"
+               FontAttributes="Italic"
+               TextColor="#666666" />
+                --><!-- Italic and slightly smaller font for email -->
+
+                <!-- Separator --><!--
+                <BoxView HeightRequest="1"
+                 BackgroundColor="#CCCCCC" />
+                --><!-- Gray separator line -->
+
+                <!-- Phone Number --><!--
+                <Label Text="Phone Number"
+               FontSize="18"
+               TextColor="#333333" />
+                --><!-- Dark text color --><!--
+
+                <Label Text="{Binding CurrentUser.PhoneNumber}"
+               FontSize="20"
+               TextColor="#666666" />
+                --><!-- Slightly smaller font for phone number -->
+
+                <!-- Separator --><!--
+                <BoxView HeightRequest="1"
+                 BackgroundColor="#CCCCCC" />
+                --><!-- Gray separator line --><!--
+
+            </StackLayout>-->
         </Grid>
-        
         <!--Row 3-->
         <controls:ConverterTabBar
             Grid.Row="2"
