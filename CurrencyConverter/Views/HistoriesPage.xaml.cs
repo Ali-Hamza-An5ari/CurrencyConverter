@@ -9,13 +9,25 @@ public partial class HistoriesPage : ContentPage
 	{
 		InitializeComponent();
 		BindingContext = vm = new HistoryViewModel();
-	}
+
+        Task.Run(async () =>
+            await vm.GetHistoriesAsync()
+        );
+
+    }
 
     private async void listConversionItem_Selected(object sender, SelectedItemChangedEventArgs e)
     {
-		/*var item = (string)sender;
+        /*var item = (string)sender;
 
 		await vm.RemoveHistoryAsync(item);*/
-		await Shell.Current.DisplayAlert("Success", "Item deleted", "Ok");
+
+        if (e.SelectedItem == null)
+            return;
+
+        var selectedItem = (string)e.SelectedItem;
+        await vm.RemoveHistoryAsync(selectedItem);
+
+        await Shell.Current.DisplayAlert("Success", "Item deleted", "Ok");
     }
 }

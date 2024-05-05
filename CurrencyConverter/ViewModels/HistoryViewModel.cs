@@ -36,7 +36,7 @@ namespace CurrencyConverter.ViewModels
         {
             var history = histories.FirstOrDefault(x => x.Conversion == conversion);
             await _connection.RemoveHistoryAsync(history);
-            histories.Remove(history);
+            Conversions.Remove(conversion);
         }
 
         public async Task GetHistoriesAsync()
