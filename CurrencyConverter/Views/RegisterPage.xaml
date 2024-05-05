@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:CurrencyConverter.Views.Controls"
+             x:Class="CurrencyConverter.Views.RegisterPage"
+             xmlns:viewmodel="clr-namespace:CurrencyConverter.ViewModels"
+             x:DataType="viewmodel:RegisterViewModel"
+             >
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <controls:TitleBar Grid.Row="0"/>
+        
+        <Grid
+            Grid.Row="1"
+            Padding="20" BackgroundColor="#F0F0F0">
+        <!-- Registration Fields -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        
+        <!--<Label Grid.Row="0" 
+               Text="" 
+               FontSize="22" HorizontalOptions="Center" 
+               Margin="0,0,0,0" TextColor="#333333" />-->
+
+
+            <Frame
+            Grid.Row="1"
+            WidthRequest="100"
+                Margin="0,0,0,6"
+            VerticalOptions="CenterAndExpand"
+            HorizontalOptions="CenterAndExpand"
+            >
+                <Image
+                Source="{Binding ProfilePictureSource}"
+                    x:Name="imgProfilePicture"
+                    
+                />
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding CaptureImageCommand}"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+            
+        <Entry Grid.Row="2" Placeholder="Name" Text="{Binding Name}" PlaceholderColor="#CCCCCC" BackgroundColor="{StaticResource DefaultWhite}" Margin="0,0,0,10" />
+        <Entry Grid.Row="3" Placeholder="Email" Text="{Binding Email}" PlaceholderColor="#CCCCCC" BackgroundColor="{StaticResource DefaultWhite}" Margin="0,0,0,10" />
+        <Entry Grid.Row="4" Placeholder="Password" Text="{Binding Password}" IsPassword="True" PlaceholderColor="#CCCCCC" BackgroundColor="{StaticResource DefaultWhite}" Margin="0,0,0,10" />
+        <Entry Grid.Row="5" Placeholder="Phone Number" Text="{Binding PhoneNumber}" PlaceholderColor="#CCCCCC" BackgroundColor="{StaticResource DefaultWhite}" Keyboard="Numeric" Margin="0,0,0,20" />
+
+        <Button 
+            Grid.Row="6" 
+            Text="Register" 
+            Command="{Binding RegisterCommand}" 
+            BackgroundColor="{StaticResource DefaultLightBlue}" TextColor="{StaticResource DefaultWhite}" />
+
+
+
+            <Label 
+                Text="Or" FontSize="Medium" 
+                HorizontalOptions="Center" 
+                Margin="0,20,0,0" 
+                Grid.Row="7" />
+
+
+            <Button 
+            Text="Login" 
+                Command="{Binding LoginCommand}" 
+            BackgroundColor="{StaticResource DefaultLightBlue}"
+            Grid.Row="8" />
+
+
+        </Grid>
+
+    </Grid>
+
+</ContentPage>

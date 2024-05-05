@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CurrencyConverter.Views.ProfilePage"
+             xmlns:viewmodel="clr-namespace:CurrencyConverter.ViewModels"
+             x:DataType="viewmodel:ProfilePageViewModel"
+             xmlns:controls="clr-namespace:CurrencyConverter.Views.Controls"
+            >
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            
+        </Grid.RowDefinitions>
+        
+        <!--Row 1-->
+        <controls:TitleBar
+            Grid.Row="0"
+            />
+
+        <!--Row 2-->
+        <Grid 
+            Grid.Row="1"
+            Padding="20"
+            HorizontalOptions="CenterAndExpand"
+            >   
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <Image Grid.Row="0" Grid.ColumnSpan="2" x:Name="imgProfile" Source="{Binding CurrentUser.ProfilePictureSource}" Aspect="AspectFill" HeightRequest="200" WidthRequest="200" Margin="0,20,0,20"/>
+
+            
+            <Label Grid.Row="1" Grid.Column="0" Text="Name" FontSize="20" />
+            <Label Grid.Row="1" Grid.Column="1" Text="{Binding CurrentUser.Name}" FontAttributes="Bold" FontSize="16" />
+
+            <Label Grid.Row="2" Grid.Column="0" Text="Email" FontSize="20" />
+            <Label Grid.Row="2" Grid.Column="1" Text="{Binding  CurrentUser.Email}" FontAttributes="Bold" FontSize="16" />
+
+            <Label Grid.Row="3" Grid.Column="0" Text="Phone Number" FontSize="20" />
+            <Label Grid.Row="3" Grid.Column="1" Text="{Binding CurrentUser.PhoneNumber}" FontAttributes="Bold" FontSize="16" />
+        </Grid>
+        
+        <!--Row 3-->
+        <controls:ConverterTabBar
+            Grid.Row="2"
+            VerticalOptions="End"
+            />
+
+    </Grid>
+</ContentPage>

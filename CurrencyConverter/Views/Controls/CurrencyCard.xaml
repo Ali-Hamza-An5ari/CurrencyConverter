@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="CurrencyConverter.Views.Controls.CurrencyCard">
+
+    <Frame
+            CornerRadius="15"
+            WidthRequest="150"
+            HeightRequest="50"
+            Padding="2"
+            BorderColor="{StaticResource DefaultGrey}"
+            VerticalOptions="CenterAndExpand"
+            HorizontalOptions="CenterAndExpand"
+            >
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+
+            </Grid.ColumnDefinitions>
+
+            <toolkit:AvatarView
+                    Grid.Column="0"
+                     HeightRequest="50"
+                      WidthRequest="50"
+                      CornerRadius="50"
+                    Margin="5"
+                >
+                <Image
+                x:Name="imgFlag"
+                WidthRequest="70"
+                Aspect="AspectFill"
+                   
+                    />
+            </toolkit:AvatarView>
+
+            <!--Column 2-->
+            <Grid 
+                    Grid.Column="1"
+                    Margin="0,0,0,0"
+                    >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <!--Row 1-->
+                <Label
+                    x:Name="lblSymbol"
+                    Grid.Row="0"
+                    
+                    FontAttributes="Bold"
+                        
+                        />
+
+                <!--Row 2-->
+                <Label
+                    x:Name="lblName"
+                    Grid.Row="1"
+                    FontSize="10"
+                    />
+            </Grid>
+        </Grid>
+
+        <Frame.GestureRecognizers>
+            <TapGestureRecognizer Tapped="OnTapped"/>
+        </Frame.GestureRecognizers>
+    </Frame>
+
+</ContentView>

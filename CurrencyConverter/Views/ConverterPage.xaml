@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:controls="clr-namespace:CurrencyConverter.Views.Controls"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             BackgroundColor="{StaticResource DefaultLightGrey}"
+             xmlns:viewmodel="clr-namespace:CurrencyConverter.ViewModels"
+             x:DataType="viewmodel:ConverterViewModel"
+             x:Class="CurrencyConverter.Views.ConverterPage">
+
+    <Grid 
+        >
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            
+        </Grid.RowDefinitions>
+        
+        <!--Row 1-->
+        
+        <Label 
+            Grid.Row="0"
+           FontSize="20"
+           FontAttributes="Bold"
+           HeightRequest="50"
+           
+           HorizontalTextAlignment="Center"   
+           VerticalTextAlignment="Center"
+           VerticalOptions="Start"
+            Text="Currency Converter"
+            >
+            <Label.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                    <GradientStop Color="{StaticResource DefaultLightGrey}" Offset="0.0" />
+                    <GradientStop Color="#3DC1F9" Offset="1.0" />
+                </LinearGradientBrush>
+            </Label.Background>
+        </Label>
+
+        <!--Row 2-->
+        <Frame 
+            Grid.Row="1"
+            WidthRequest="350"
+            Margin="10"
+            >
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                
+               <!--Row 1-->
+
+                <controls:CurrencyInputCard
+                    x:Name="frmFrom"
+                    OnTap="frmFrom_Tap"
+                    InputValue="{Binding FromInput}"
+                    OnChange="frmFrom_Change"
+                    Grid.Row="0"
+                />
+                
+                <!--Row 2-->
+                <Image
+                    Grid.Row="1"
+                    Source="convert.png"
+                    Margin="0,15,0,-15"
+                    />
+
+                <!--Row 3-->
+                <controls:CurrencyInputCard
+                    x:Name="frmTo"
+                    OnTap="frmTo_Tap"
+                    OnChange="frmTo_Change"
+                    InputValue="{Binding ToInput}"
+                    Grid.Row="2"
+                />
+
+            </Grid>
+            
+        </Frame>
+        
+        <!--Row 3-->
+        <Label 
+            Grid.Row="2"
+            x:Name="lblResult"
+            FontAttributes="Bold"
+            FontSize="20"
+            Margin="10"
+            />
+        
+        <!--Row 4-->
+        <controls:ConverterTabBar
+            Grid.Row="3"
+            CurrentPage="0"
+            VerticalOptions="End"
+            />
+
+    </Grid>
+</ContentPage>

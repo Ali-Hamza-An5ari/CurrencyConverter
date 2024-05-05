@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CurrencyConverter.Views.HistoryPage"
+             xmlns:viewmodel="clr-namespace:CurrencyConverter.ViewModels"
+             x:DataType="viewmodel:HistoryViewModel"
+             xmlns:controls="clr-namespace:CurrencyConverter.Views.Controls"
+            >
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+
+        </Grid.RowDefinitions>
+        <!--Row 1-->
+        <controls:TitleBar
+            Grid.Row="0"
+            
+            />
+        
+        <!--Row 2-->
+        <Label
+            Grid.Row="1"
+            Text="History" FontSize="Large" HorizontalOptions="Center" Margin="0,0,0,20"/>
+
+        <!--Row 3-->
+        <ListView 
+            Grid.Row="2"
+            x:Name="listHistory"
+            ItemsSource="{Binding Histories}" 
+            HeightRequest="400"
+            VerticalOptions="FillAndExpand">
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="j"/>
+
+
+                    <!--<ViewCell>
+                        <StackLayout>
+                            <Label Text="{Binding Conversion}"/>
+                            <Label Text="{Binding Conversion}"/>
+                        </StackLayout>
+                    </ViewCell>-->
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            <ListView.GestureRecognizers>
+                <SwipeGestureRecognizer Direction="Left" Swiped="OnSwipeLeft" />
+                <SwipeGestureRecognizer Direction="Right" Swiped="OnSwipeRight" />
+            </ListView.GestureRecognizers>
+
+        </ListView>
+        
+        <!--Row 4-->
+        <controls:ConverterTabBar
+            Grid.Row="3"
+            VerticalOptions="EndAndExpand"
+            CurrentPage="3"
+            />
+    </Grid>
+</ContentPage>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CurrencyConverter.Views.LocationPage"
+             xmlns:controls="clr-namespace:CurrencyConverter.Views.Controls"
+             >
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            
+        </Grid.RowDefinitions>
+        
+        <!--Row 1-->
+        <controls:TitleBar 
+            Grid.Row="0"
+            
+            />
+
+        <!--Row 2-->
+        <Frame
+            Grid.Row="1"
+            WidthRequest="250"
+            VerticalOptions="CenterAndExpand"
+            HorizontalOptions="CenterAndExpand"
+            Margin="30"
+            >
+            <Image
+                Source="location.png"
+                />
+
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding GetPermissionAndLocactionAsyncCommand}"/>
+            </Frame.GestureRecognizers>
+
+        </Frame>
+        
+        <!--Row 3-->
+        <Label
+            Grid.Row="2"
+            x:Name="lblLocation"
+            HorizontalOptions="CenterAndExpand"
+            Margin="30"
+            FontSize="20"
+            Text="{Binding LocationName}"
+            
+            />
+        
+        <!--Row 4-->
+        <controls:ConverterTabBar
+            Grid.Row="3"
+            CurrentPage="1"
+            VerticalOptions="EndAndExpand"
+            />
+    </Grid>
+</ContentPage>
