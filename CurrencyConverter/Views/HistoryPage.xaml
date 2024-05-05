@@ -41,7 +41,7 @@
                     <SwipeView>
                         <SwipeView.LeftItems>
                             <SwipeItems>
-                                <SwipeItem Text="Delete" BackgroundColor="Red" Command="{Binding Source={x:Reference Name=listHistory}, Path=BindingContext.RemoveHistoryCommand}" CommandParameter="{Binding .}" />
+                                <SwipeItem Text="Delete" BackgroundColor="Red" Command="{Binding Source={x:Reference Name=listHistory}, Path=BindingContext.RemoveHistoryAsyncCommand}" CommandParameter="{Binding .}" />
                             </SwipeItems>
                         </SwipeView.LeftItems>
                         <SwipeView.Content>

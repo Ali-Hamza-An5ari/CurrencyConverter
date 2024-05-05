@@ -24,17 +24,7 @@ namespace CurrencyConverter.ViewModels
             _connection = new LocalDbConnection();
             
             Task.Run(async () => 
-                {
-                histories =
-                    new ObservableCollection<History>(
-                        await _connection.GetHistoriesAsync()
-                        );
-
-                conversions = new ObservableCollection<string> 
-                    (
-                        histories.Select(x => x.Conversion).ToList()
-                    );
-                }
+                await GetHistoriesAsync()
             );
         }
 
@@ -42,9 +32,24 @@ namespace CurrencyConverter.ViewModels
             => await _connection.GetHistoriesAsync();
     
 
-        public async Task RemoveHistoryAsync(History history)
+        public async Task RemoveHistoryAsync(string conversion)
         {
+            var history = histories.FirstOrDefault(x => x.Conversion == conversion);
             await _connection.RemoveHistoryAsync(history);
+        }
+
+        public async Task GetHistoriesAsync()
+        {
+            histories =
+                new ObservableCollection<History>(
+                    await _connection.GetHistoriesAsync()
+                    );
+
+            conversions = new ObservableCollection<string>
+                (
+                    histories.Select(x => x.Conversion).ToList()
+                );
+
         }
     }
 }
