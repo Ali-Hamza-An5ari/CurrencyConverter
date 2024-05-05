@@ -20,17 +20,23 @@
             />
 
 
-        <ScrollView
+        <Frame
+            
             Grid.Row="1"
           Padding="20"
           HorizontalOptions="CenterAndExpand"
-              WidthRequest="350"
-            HeightRequest="500"
+              WidthRequest="300"
+            Margin="0,20,0,0"
+      BackgroundColor="#F0F0F0"
+            >
+            
+        <ScrollView
+            HeightRequest="410"
             >
             
         <!--Row 2-->
-        <Grid 
-      BackgroundColor="#F0F0F0">
+            
+        <Grid >
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
@@ -39,8 +45,8 @@
             <!-- Profile Picture -->
             <Frame Grid.Row="0"
            Grid.ColumnSpan="2"
-                   WidthRequest="180"
-                   HeightRequest="180"
+                   WidthRequest="120"
+                   HeightRequest="120"
            CornerRadius="100"
            HasShadow="True" 
                 Margin="0,20,0,20">
@@ -53,14 +59,14 @@
 
                 <Frame
                CornerRadius="25"
-            WidthRequest="280"
+            WidthRequest="240"
                 Grid.Row="1"
              Grid.ColumnSpan="2"
                 >
                     <!-- User Information -->
                     <Grid 
              BackgroundColor="White"
-             WidthRequest="250"     
+             WidthRequest="200"     
              Padding="15">
 
                         <Grid.RowDefinitions>
@@ -83,6 +89,7 @@
                         <Image Source="name.png"
                            Grid.Row="0"
                            Grid.Column="0"
+                               WidthRequest="40"
                            VerticalOptions="Center" />
                         <!-- Dark text color -->
 
@@ -108,6 +115,7 @@
                         <Image Source="email.png"
                            Grid.Row="2"
                            Grid.Column="0"
+                               WidthRequest="40"
                VerticalOptions="Center"/>
                         <!-- Dark text color -->
 
@@ -131,6 +139,7 @@
                         <!-- Phone Number -->
                         <Image Source="phone.png"
                            VerticalOptions="Center"
+                               WidthRequest="40"
                            Grid.Column="0"
                            Grid.Row="4" />
                         <!-- Dark text color -->
@@ -158,6 +167,8 @@
 
 
         </ScrollView>
+
+        </Frame>
         <!--Row 3-->
         <controls:ConverterTabBar
             Grid.Row="2"

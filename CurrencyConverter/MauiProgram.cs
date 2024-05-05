@@ -28,6 +28,7 @@ namespace CurrencyConverter
             builder.Services.AddSingleton<LoginPage>();
             builder.Services.AddSingleton<HistoryPage>();
             builder.Services.AddSingleton<ProfilePage>();
+            builder.Services.AddSingleton<HistoriesPage>();
 
 
             builder.Services.AddSingleton<ConverterViewModel>();
@@ -36,6 +37,7 @@ namespace CurrencyConverter
             builder.Services.AddSingleton<HistoryViewModel>();
             builder.Services.AddSingleton<LocationViewModel>();
             builder.Services.AddSingleton<ProfilePageViewModel>();
+            builder.Services.AddSingleton<HistoriesPage>();
 
 #if DEBUG
             builder.Logging.AddDebug();

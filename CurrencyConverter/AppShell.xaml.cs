@@ -15,6 +15,7 @@ namespace CurrencyConverter
             Routing.RegisterRoute(nameof(HistoryPage), typeof(HistoryPage));
             Routing.RegisterRoute(nameof(LocationPage), typeof(LocationPage));
             Routing.RegisterRoute(nameof(ProfilePage), typeof(ProfilePage));
+            Routing.RegisterRoute(nameof(HistoriesPage), typeof(HistoriesPage));
 
         }
     }

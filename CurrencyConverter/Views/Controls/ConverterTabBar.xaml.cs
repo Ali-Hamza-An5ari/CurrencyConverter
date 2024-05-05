@@ -73,7 +73,7 @@ public partial class ConverterTabBar : ContentView
                 Shell.Current.GoToAsync(nameof(LocationPage));
                 break;
             case 2:
-                Shell.Current.GoToAsync(nameof(HistoryPage));
+                Shell.Current.GoToAsync(nameof(HistoriesPage));
                 break;
             case 3:
                 Shell.Current.GoToAsync(nameof(ProfilePage));
