@@ -26,7 +26,6 @@ namespace CurrencyConverter
             builder.Services.AddSingleton<LocationPage>();
             builder.Services.AddSingleton<RegisterPage>();
             builder.Services.AddSingleton<LoginPage>();
-            builder.Services.AddSingleton<HistoryPage>();
             builder.Services.AddSingleton<ProfilePage>();
             builder.Services.AddSingleton<HistoriesPage>();
 

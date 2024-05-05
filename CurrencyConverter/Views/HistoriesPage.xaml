@@ -25,6 +25,7 @@
             ItemsSource="{Binding Conversions}" 
             HeightRequest="420"
             VerticalOptions="FillAndExpand"
+            ItemSelected="listConversionItem_Selected"
             >
             
         </ListView>

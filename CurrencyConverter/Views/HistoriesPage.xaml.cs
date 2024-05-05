@@ -10,4 +10,12 @@ public partial class HistoriesPage : ContentPage
 		InitializeComponent();
 		BindingContext = vm = new HistoryViewModel();
 	}
+
+    private async void listConversionItem_Selected(object sender, SelectedItemChangedEventArgs e)
+    {
+		/*var item = (string)sender;
+
+		await vm.RemoveHistoryAsync(item);*/
+		await Shell.Current.DisplayAlert("Success", "Item deleted", "Ok");
+    }
 }
