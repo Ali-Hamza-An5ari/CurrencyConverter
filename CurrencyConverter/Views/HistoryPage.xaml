@@ -30,27 +30,52 @@
         <ListView 
             Grid.Row="2"
             x:Name="listHistory"
-            ItemsSource="{Binding Histories}" 
+            ItemsSource="{Binding Conversions}" 
             HeightRequest="400"
             VerticalOptions="FillAndExpand">
 
             <ListView.ItemTemplate>
+
+
                 <DataTemplate>
-                    <TextCell Text="j"/>
+                    <SwipeView>
+                        <SwipeView.LeftItems>
+                            <SwipeItems>
+                                <SwipeItem Text="Delete" BackgroundColor="Red" Command="{Binding Source={x:Reference Name=listHistory}, Path=BindingContext.RemoveHistoryCommand}" CommandParameter="{Binding .}" />
+                            </SwipeItems>
+                        </SwipeView.LeftItems>
+                        <SwipeView.Content>
+                            <StackLayout Padding="10">
+                                <Label Text="{Binding .}" />
+                            </StackLayout>
+                        </SwipeView.Content>
+                    </SwipeView>
+                </DataTemplate>
+                <!--<DataTemplate>
+                    --><!--<TextCell Text="j"/>--><!--
+                    <SwipeView>
+                        <SwipeView.LeftItems>
+                            <SwipeItems>
+                                <SwipeItem Text="Delete" BackgroundColor="Red" Command="{Binding Source={x:Reference Name=listHistory}, Path=BindingContext.RemoveHistoryAsyncCommand}" CommandParameter="{Binding .}" />
+                            </SwipeItems>
+                        </SwipeView.LeftItems>
+                        <SwipeView.Content>
+                            <TextCell Text="{Binding .}" />
+                        </SwipeView.Content>
+                    </SwipeView>
 
-
-                    <!--<ViewCell>
+                    --><!--<ViewCell>
                         <StackLayout>
                             <Label Text="{Binding Conversion}"/>
-                            <Label Text="{Binding Conversion}"/>
+                            --><!--<Label Text="{Binding Conversion}"/>--><!--
                         </StackLayout>
-                    </ViewCell>-->
-                </DataTemplate>
+                    </ViewCell>--><!--
+                </DataTemplate>-->
             </ListView.ItemTemplate>
-            <ListView.GestureRecognizers>
+            <!--<ListView.GestureRecognizers>
                 <SwipeGestureRecognizer Direction="Left" Swiped="OnSwipeLeft" />
                 <SwipeGestureRecognizer Direction="Right" Swiped="OnSwipeRight" />
-            </ListView.GestureRecognizers>
+            </ListView.GestureRecognizers>-->
 
         </ListView>
         

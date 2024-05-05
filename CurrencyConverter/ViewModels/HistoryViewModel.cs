@@ -12,20 +12,30 @@ namespace CurrencyConverter.ViewModels
 {
     public partial class HistoryViewModel: ObservableObject
     {
-        [ObservableProperty]
         private ObservableCollection<History> histories;
+
+        [ObservableProperty]
+        private ObservableCollection<string> conversions;
 
         private readonly LocalDbConnection _connection;
 
         public HistoryViewModel()
         {
             _connection = new LocalDbConnection();
-            /*Task.Run(async () => 
-            histories =
-            new ObservableCollection<History>(
-                await _connection.GetHistoriesAsync()
-                )
-            );*/
+            
+            Task.Run(async () => 
+                {
+                histories =
+                    new ObservableCollection<History>(
+                        await _connection.GetHistoriesAsync()
+                        );
+
+                conversions = new ObservableCollection<string> 
+                    (
+                        histories.Select(x => x.Conversion).ToList()
+                    );
+                }
+            );
         }
 
         public async Task<List<History>> GetHistories()
