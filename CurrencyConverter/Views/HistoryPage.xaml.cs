@@ -14,9 +14,9 @@ public partial class HistoryPage : ContentPage
         });
 
         BindingContext = vm = new HistoryViewModel();
-        Task.Run(async () =>
-           this.listHistory.ItemsSource = await vm.GetHistories()
-                )
+        //Task.Run(async () =>
+        //   this.listHistory.ItemsSource = await vm.GetHistories()
+        //        )
         ;
 	}
 

@@ -45,7 +45,7 @@ namespace CurrencyConverter.ViewModels
                     await _connection.GetHistoriesAsync()
                     );
 
-            conversions = new ObservableCollection<string>
+            Conversions = new ObservableCollection<string>
                 (
                     histories.Select(x => x.Conversion).ToList()
                 );

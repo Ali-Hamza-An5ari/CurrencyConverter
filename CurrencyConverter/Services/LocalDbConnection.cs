@@ -104,7 +104,7 @@ namespace CurrencyConverter.Services
 
         public async Task<bool> LoginAsync(string email, string password)
         {
-            var user = await _connection.Table<User>().FirstOrDefaultAsync(x=>x.Email==email && x.Password == password);
+            var user = await _connection.Table<User>().FirstOrDefaultAsync(x=>x.Email.ToLower() ==email.ToLower() && x.Password.ToLower() == password.ToLower());
             CurrentUser = user;
 
             return user != null;
